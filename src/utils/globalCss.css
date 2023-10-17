@@ -1,0 +1,38 @@
+.liItems {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.liItems:hover {
+  color: #fff;
+}
+.delayTrans {
+  transition: all 0.8s ease-in-out;
+}
+.rotateIcon {
+  transform: rotate(180deg);
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background: #6b7280;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* header css */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate-infinite {
+  animation: spin 2s linear infinite;
+}
