@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 import Maindash from "../../components/Maindash";
+import SubscribePop from "../../components/SubscribePop";
 
 const Dashboard = () => {
   return (
@@ -15,6 +16,10 @@ const Dashboard = () => {
           <div className="mt-16">
             <Maindash />
           </div>
+        </div>
+        {/* subscribe popup */}
+        <div className="absolute">
+          <SubscribePop />
         </div>
       </div>
     </>
