@@ -36,3 +36,8 @@
 .rotate-infinite {
   animation: spin 2s linear infinite;
 }
+
+/* css for the bg blur when subscribe popup is active */
+.bgBlur {
+  filter: blur(5px);
+}

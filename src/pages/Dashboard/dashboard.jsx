@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import Maindash from "../../components/Maindash";
 import SubscribePop from "../../components/SubscribePop";
 import { MyContext } from "../../context/AdminContext";
+import "../../utils/globalCss.css";
 
 const Dashboard = () => {
   const { togglePop, setTogglePop } = useContext(MyContext);
@@ -14,7 +15,7 @@ const Dashboard = () => {
     <>
       <div className="flex relative">
         <Sidebar />
-        <div className="flex-grow">
+        <div className={`flex-grow ${togglePop ? "bgBlur" : ""}`}>
           <div className="fixed">
             <Header />
           </div>
@@ -24,7 +25,7 @@ const Dashboard = () => {
         </div>
         {/* subscribe popup */}
         {togglePop && (
-          <div className="absolute flex justify-center items-center inset-0">
+          <div className="absolute flex justify-center items-center inset-0 mb-32">
             <SubscribePop />
           </div>
         )}
