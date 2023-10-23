@@ -4,59 +4,69 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
-  const demoCred = () => {
+
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    navigate("/dashboard");
+    setEmail("");
+    setPassword("");
+  };
+  const handleDemoCred = () => {
     setEmail("demo@gmail.com");
     setPassword("123456");
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email.length > 0 && password.length > 0) {
-      navigate("/dashboard");
-    }
-  };
+
   return (
-    <div className="flex justify-center items-center mt-24">
-      <div className="border-gray-100 w-64 bg-gray-200 rounded-md px-4 py-4">
-        <h2>Welcome Back!</h2>
-        <p>Sign in to continue to Skote.</p>
-        <form className="" onSubmit={handleSubmit}>
-          <p className="text-left">Email</p>
-          <br />
-          <input
-            type="email"
-            placeholder="Email"
-            className=" border border-gray-700 outline-none rounded-md"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <br />
-          <p className="text-left">Password</p>
-          <br />
-          <input
-            type="password"
-            placeholder="password"
-            required
-            className="border border-gray-700 outline-none rounded-md"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br />
-          <span className="flex items-center justify-center px-2">
-            <input type="checkbox" />
-            <label className="ml-2">Remember me</label>
-          </span>
-          <br />
-          <span className="cursor-pointer underline" onClick={demoCred}>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white w-full max-w-md p-8 rounded-lg shadow-md">
+        <h2 className="text-2xl font-semibold mb-4 text-center">Sign In</h2>
+        <form onSubmit={handleSignIn}>
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="block w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-green-400 focus:outline-none"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-600"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="block w-full p-3 border border-gray-300 rounded-md focus:ring focus:ring-green-400 focus:outline-none"
+              required
+            />
+          </div>
+          <h2
+            className="my-2 cursor-pointer underline"
+            onClick={handleDemoCred}
+          >
             Demo Credentials
-          </span>
+          </h2>
           <button
             type="submit"
-            className="bg-blue-600 text-white rounded-md w-full cursor-pointer"
+            className="w-full p-3 bg-slate-500 text-white rounded-md hover:bg-green-600 focus:ring focus:ring-green-400 focus:outline-none"
           >
-            Log in
+            Sign In
           </button>
         </form>
       </div>

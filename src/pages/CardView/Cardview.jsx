@@ -11,6 +11,7 @@ import Three from "../../Card-components/Three";
 import Four from "../../Card-components/Four";
 import Form from "../../Card-components/Form";
 import PieChart from "../../Card-components/PieChart";
+import SelectForm from "../../Form-components/SelectForm";
 
 const useStyles = makeStyles({
   root: {
@@ -102,6 +103,12 @@ const Cardview = () => {
         >
           Form
         </h2>
+        <h2
+          className="uppercase text-gray-500 text-lg font-bold mt-4 cursor-pointer"
+          onClick={() => setActiveTab("SelectForm")}
+        >
+          Select
+        </h2>
       </div>
       {/* seond flex */}
       <div>
@@ -120,7 +127,7 @@ const Cardview = () => {
             </button>
           ))}
         </div>
-        {/* dynamic componenets*/}
+        {/* dynamic components */}
         {activeTab === "MainChart" ? (
           <div>
             {/* cards */}
@@ -150,6 +157,8 @@ const Cardview = () => {
               </div>
             </div>
           </div>
+        ) : activeTab === "SelectForm" ? (
+          <SelectForm />
         ) : activeTab === "One" ? (
           <One cardName={CardName[0]} />
         ) : activeTab === "Two" ? (
