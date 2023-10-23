@@ -77,10 +77,10 @@ const Sidebar = () => {
   return (
     <div className="bg-gray-700 text-gray-500 w-52">
       {/* sidebar section */}
-      <h1 className="uppercase font-bold text-white py-4 tracking-wider">
+      <h1 className="uppercase font-bold text-white py-4 tracking-wider fixed text-center bg-gray-700 w-52">
         Skote
       </h1>
-      <div className="flex flex-col gap-2 px-3 pt-6 overflow-y-auto h-screen scrollbar scroll">
+      <div className="flex flex-col gap-2 px-3 pt-6 overflow-y-auto h-screen scrollbar scroll mt-12">
         {/* menu items */}
         <p className="uppercase font-thin text-xs text-left">Menu</p>
         <li

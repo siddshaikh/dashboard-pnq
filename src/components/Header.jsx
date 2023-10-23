@@ -13,10 +13,12 @@ import { CiSettings } from "react-icons/ci";
 import { AiOutlineLock } from "react-icons/ai";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import "../utils/globalCss.css";
+import SettingPanel from "./SettingPanel";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [adminPopup, setAdminPopup] = useState(false);
+  const [showSetting, setShowSetting] = useState(false);
 
   const handleShowMenu = () => {
     if (adminPopup) {
@@ -33,7 +35,7 @@ const Header = () => {
   };
 
   return (
-    <div className="relative bg-white w-full">
+    <div className="relative bg-white w-screen">
       {/* Navigation bar section */}
       <div className="flex items-center justify-between px-6 py-3">
         <div className="flex items-center">
@@ -55,7 +57,7 @@ const Header = () => {
             Mega menu <IoMdArrowDropdown />
           </div>
         </div>
-        <div className="ml-40 flex items-center justify-evenly">
+        <div className="flex items-center justify-evenly mr-40">
           <img
             src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png"
             alt="flag"
@@ -68,7 +70,7 @@ const Header = () => {
           <div className="ml-4 cursor-pointer">
             <AiOutlineMinusSquare />
           </div>
-          <div className="ml-4 cursor-pointer">
+          <div className="moving-bell ml-4 cursor-pointer">
             <BsBell />
           </div>
           <div
@@ -80,7 +82,7 @@ const Header = () => {
           </div>
           {/*admin dropdown */}
           {adminPopup && (
-            <div className="shadow-md rounded-md absolute mt-52 ml-20 px-6 py-6 text-gray-500">
+            <div className="shadow-md rounded-md absolute mt-56 ml-20 px-6 py-6 text-gray-500 bg-white">
               <ul>
                 <li className="flex items-center">
                   <span>
@@ -117,7 +119,10 @@ const Header = () => {
             </div>
           )}
 
-          <div className="rotate-infinite ml-4 cursor-pointer">
+          <div
+            className="rotate-infinite ml-4 cursor-pointer"
+            onClick={() => setShowSetting(!showSetting)}
+          >
             <AiOutlineSetting />
           </div>
         </div>
@@ -127,6 +132,15 @@ const Header = () => {
       {showMenu && (
         <div>
           <MegaMenu />
+        </div>
+      )}
+      {/* setting bar */}
+      {showSetting && (
+        <div
+          className="absolute top-0 right-44 bg-white p-4 rounded-lg shadow-md 
+         mt-10"
+        >
+          <SettingPanel />
         </div>
       )}
     </div>
